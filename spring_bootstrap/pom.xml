@@ -23,7 +23,8 @@
 		<org.apache.dbcp2-version>2.5.0</org.apache.dbcp2-version>
 		<org.mybatis-version>3.5.0</org.mybatis-version>
 		<org.mybatis.spring-version>2.0.0</org.mybatis.spring-version>
-
+		<com.jackson.databind-version>2.9.8</com.jackson.databind-version>
+		
 		<org.aspectj-version>1.6.10</org.aspectj-version>
 		<org.slf4j-version>1.6.6</org.slf4j-version>
 	</properties>
@@ -82,6 +83,13 @@
 			<artifactId>mybatis-spring</artifactId>
 			<version>${org.mybatis.spring-version}</version>
 		</dependency>
+		<!-- jackson-databind -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>${com.jackson.databind-version}</version>
+		</dependency>
+
 
 
 		<!-- sitemesh -->

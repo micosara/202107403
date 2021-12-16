@@ -30,6 +30,20 @@
 		<filter-name>encodingFilter</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
+	
+	
+	<filter>
+		<filter-name>CheckLoginUserFilter</filter-name>
+		<filter-class>com.jsp.filter.CheckLoginUserFilter</filter-class>
+		<init-param>
+			<param-name>exclude</param-name>
+			<param-value>login,resources</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>CheckLoginUserFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
 
 	<filter>
 		<filter-name>sitemesh</filter-name>
