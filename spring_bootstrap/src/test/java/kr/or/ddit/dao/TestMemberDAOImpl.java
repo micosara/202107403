@@ -12,8 +12,8 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 
-import kr.or.ddit.dao.MemberDAO;
-import kr.or.ddit.dto.MemberVO;
+import com.jsp.dao.MemberDAO;
+import com.jsp.dto.MemberVO;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations="classpath:kr/or/ddit/context/root-context.xml")

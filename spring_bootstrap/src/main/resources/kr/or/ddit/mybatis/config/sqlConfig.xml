@@ -7,13 +7,13 @@
 		<typeAlias type="java.lang.String" alias="str" />
 		<typeAlias type="java.lang.Integer" alias="int" />
 		
-		<typeAlias type="kr.or.ddit.dto.MemberVO"  alias="member"/>	
-		<typeAlias type="kr.or.ddit.dto.MenuVO" alias="menu" />
-		<typeAlias type="kr.or.ddit.dto.NoticeVO" alias="notice" />
-		<typeAlias type="kr.or.ddit.dto.BoardVO" alias="board" />
-		<typeAlias type="kr.or.ddit.dto.ReplyVO" alias="reply" />
-		<typeAlias type="kr.or.ddit.dto.AttachVO" alias="attach" />
-		<typeAlias type="kr.or.ddit.dto.PdsVO" alias="pds" />
+		<typeAlias type="com.jsp.dto.MemberVO"  alias="member"/>	
+		<typeAlias type="com.jsp.dto.MenuVO" alias="menu" />
+		<typeAlias type="com.jsp.dto.NoticeVO" alias="notice" />
+		<typeAlias type="com.jsp.dto.BoardVO" alias="board" />
+		<typeAlias type="com.jsp.dto.ReplyVO" alias="reply" />
+		<typeAlias type="com.jsp.dto.AttachVO" alias="attach" />
+		<typeAlias type="com.jsp.dto.PdsVO" alias="pds" />
 		
 	</typeAliases>
 	

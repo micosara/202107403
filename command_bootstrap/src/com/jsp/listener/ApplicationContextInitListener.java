@@ -18,7 +18,7 @@ import org.w3c.dom.NodeList;
 
 import com.jsp.context.ApplicationContext;
 
-@WebListener
+
 public class ApplicationContextInitListener implements ServletContextListener {
 
 	public void contextDestroyed(ServletContextEvent arg0) {
