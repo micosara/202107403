@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.jsp.dto.MenuVO;
 import com.jsp.exception.InvalidPasswordException;
@@ -37,7 +38,8 @@ public class CommonController {
 	}
 
 	@RequestMapping(value = "/common/login", method = RequestMethod.POST)
-	public String login(String id, String pwd, HttpSession session, Model model) throws Exception {
+	public String login(String id, String pwd, HttpSession session, 
+			 			RedirectAttributes rttr, Model model) throws Exception {
 		String url = "redirect:/index.do";
 
 		try {
@@ -45,8 +47,10 @@ public class CommonController {
 
 			session.setAttribute("loginUser", memberService.getMember(id));
 		} catch (NotFoundIDException | InvalidPasswordException e) {
-			model.addAttribute("message", e.getMessage());
-			url = "common/login_fail";
+			//model.addAttribute("message", e.getMessage());
+			//url = "common/login_fail";
+			rttr.addFlashAttribute("message",e.getMessage());
+			url="redirect:/common/loginForm.do";
 
 		} catch (SQLException e) {
 			e.printStackTrace();

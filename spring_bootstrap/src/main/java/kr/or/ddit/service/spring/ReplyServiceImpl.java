@@ -7,19 +7,26 @@ import java.util.Map;
 
 import com.jsp.command.PageMaker;
 import com.jsp.command.SearchCriteria;
+import com.jsp.dto.MemberVO;
 import com.jsp.dto.ReplyVO;
 import com.jsp.service.ReplyService;
 
+import kr.or.ddit.dao.spring.MemberDAOBean;
 import kr.or.ddit.dao.spring.ReplyDAOBean;
 
 public class ReplyServiceImpl implements ReplyService{
 	
 	private ReplyDAOBean replyDAOBean;
 
-	public void setReplyDAO(ReplyDAOBean replyDAOBean) {
+	public void setReplyDAOBean(ReplyDAOBean replyDAOBean) {
 		this.replyDAOBean = replyDAOBean;
 	}
 
+	private MemberDAOBean memberDAOBean;
+	public void setMemberDAOBean(MemberDAOBean memberDAOBean) {
+		this.memberDAOBean = memberDAOBean;
+	}
+	
 	@Override
 	public Map<String, Object> getReplyList(int bno, SearchCriteria cri) throws SQLException {
 
@@ -27,6 +34,11 @@ public class ReplyServiceImpl implements ReplyService{
 
 		List<ReplyVO> replyList = replyDAOBean.selectReplyListPage(bno, cri);
 
+		if(replyList!=null)for(ReplyVO reply : replyList) {
+			MemberVO member = memberDAOBean.selectMemberById(reply.getReplyer());
+			reply.setPicture(member.getPicture());
+		}
+		
 		int count = replyDAOBean.countReply(bno);
 
 		PageMaker pageMaker = new PageMaker();

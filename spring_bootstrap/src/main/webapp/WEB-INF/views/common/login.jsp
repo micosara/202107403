@@ -50,7 +50,22 @@
 		<!-- /.login-box-body -->
 	  </div>	
 	</div>
-	<!-- /.login-box -->
-	
+	<!-- /.login-box -->	
   </div>
+
+<script>
+	if('${message}'){
+		alert('${message}');
+	}
+
+</script>  
+  
 </body>
+
+
+
+
+
+
+
+

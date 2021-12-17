@@ -19,7 +19,16 @@
 
 <title>공지목록</title>
 
-<body>
+<body>	
+	<script>
+		if(${from eq 'regist'}){
+			alert("등록되었습니다.");
+			window.opener.location.reload();			
+			window.close();
+		}
+	</script>
+	
+	
 	 <!-- Main content -->
 	<section class="content-header">
 	  	<div class="container-fluid">
@@ -99,7 +108,7 @@
 							<td id="boardTitle" style="text-align:left;max-width: 100px; overflow: hidden; 
 												white-space: nowrap; text-overflow: ellipsis;">
 												
-							<a href="javascript:OpenWindow('detail.do?bno=${board.bno }','상세보기',800,700);">
+							<a href="javascript:OpenWindow('detail.do?bno=${board.bno }&from=list','상세보기',800,700);">
 								<span class="col-sm-12 ">${board.title }
 									<c:if test="${board.replycnt ne 0 }">		
 										<span class="nav-item">															

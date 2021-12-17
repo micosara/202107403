@@ -145,6 +145,17 @@
 
 <script>
 
+if(${from eq 'modify'}){
+	alert("정상적으로 수정되었습니다.");	
+	window.opener.location.reload();
+}
+if(${from eq 'remove'}){
+	alert("삭제되었습니다.");
+	window.opener.location.reload();
+	window.close();
+}
+
+
 function modify_go(){
 	var formObj = $("form[role='form']");
 	formObj.attr({
