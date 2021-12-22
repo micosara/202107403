@@ -30,6 +30,12 @@ public class CommonController {
 
 	@Autowired
 	private MemberServiceForModify memberService;
+	
+	@RequestMapping("/main")
+	public String main() {
+		String url="common/main";
+		return url;
+	}
 
 	@RequestMapping(value = "/common/loginForm", method = RequestMethod.GET)
 	public String loginForm() {

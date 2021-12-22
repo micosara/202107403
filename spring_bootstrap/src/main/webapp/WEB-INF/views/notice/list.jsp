@@ -4,9 +4,9 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 
-<c:set var="pageMaker" value="${dataMap.pageMaker }" />
-<c:set var="cri" value="${dataMap.pageMaker.cri }" />
-<c:set var="noticeList" value="${dataMap.noticeList }" />
+<%-- <c:set var="pageMaker" value="${dataMap.pageMaker }" /> --%>
+<c:set var="cri" value="${pageMaker.cri }" />
+<%-- <c:set var="noticeList" value="${dataMap.noticeList }" /> --%>
 
 <head></head>
 
@@ -44,7 +44,7 @@
 				<div id="keyword" class="card-tools" style="width:540px;">
 					<div class="input-group row">
 						<select class="form-control col-md-3" name="perPageNum" id="perPageNum"
-					  		onchange="list_go();">
+					  		onchange="list_go(1);">
 					  		<option value="10" >정렬개수</option>
 					  		<option value="20" ${cri.perPageNum == 20 ? 'selected':''}>20개씩</option>
 					  		<option value="50" ${cri.perPageNum == 50 ? 'selected':''}>50개씩</option>
@@ -87,7 +87,7 @@
 						</tr>
 					</c:if>				
 					<c:forEach items="${noticeList }" var="notice">
-						<tr style='font-size:0.85em;cursor:pointer;' onclick="OpenWindow('detail.do?nno=${notice.nno }','상세보기',800,700);">
+						<tr style='font-size:0.85em;cursor:pointer;' onclick="OpenWindow('detail.do?nno=${notice.nno }&from=list','상세보기',800,700);">
 							<td>${notice.nno }</td>
 							<td id="boardTitle" style="text-align:left;max-width: 100px; overflow: hidden; 
 												white-space: nowrap; text-overflow: ellipsis;">
@@ -117,6 +117,14 @@
     		return false;    		
     	});
     }
+    
+    if(${from eq 'regist'}){
+    	alert("공지사항 등록이 성공했습니다.");
+    	window.opener.location.reload();	
+    	window.close();
+    }
+    
+    
     </script>
     
 </body>

@@ -60,7 +60,7 @@
 				<div id="keyword" class="card-tools" style="width:450px;">
 					<div class="input-group row">
 						<select class="form-control col-md-3" name="perPageNum" id="perPageNum"
-					  		onchange="list_go();">
+					  		onchange="list_go(1);">
 					  		<option value="10" >정렬개수</option>
 					  		<option value="20" ${cri.perPageNum == 20 ? 'selected':''}>20개씩</option>
 					  		<option value="50" ${cri.perPageNum == 50 ? 'selected':''}>50개씩</option>
