@@ -7,7 +7,7 @@
 {{#each .}}
 <div class="replyLi" >
 	<div class="user-block">
-		<img src="<%=request.getContextPath()%>/member/getPicture.do?picture={{picture}}" class="img-circle img-bordered-sm"/>
+		<img src="<%=request.getContextPath()%>/member/getPictureById.do/{{replyer}}" class="img-circle img-bordered-sm"/>
     </div>
 	
  	<div class="timeline-item" >

@@ -90,7 +90,7 @@
 
 					<div class="col-sm-9">
 						<input name="email" type="email" class="form-control" id="email"
-							placeholder="example@naver.com" value="">
+							placeholder="example@naver.com" value="${member.email }">
 					</div>
 				</div>
 				<div class="form-group row">
