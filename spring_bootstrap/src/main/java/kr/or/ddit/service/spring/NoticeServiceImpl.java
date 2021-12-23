@@ -44,8 +44,11 @@ public class NoticeServiceImpl implements NoticeService{
 
 	@Override
 	public NoticeVO getNotice(int nno) throws SQLException {
-		NoticeVO board = noticeDAOBean.selectNoticeByNno(nno);
 		noticeDAOBean.increaseViewCount(nno);
+		
+		if(true) throw new SQLException();
+		
+		NoticeVO board = noticeDAOBean.selectNoticeByNno(nno);
 		return board;
 	}
 

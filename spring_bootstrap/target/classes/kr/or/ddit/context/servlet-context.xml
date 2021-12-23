@@ -33,6 +33,24 @@
 	            p:defaultEncoding="utf-8"	            
 	/>
 	
+	<interceptors>
+		<interceptor>
+			<mapping path="/common/login.do"/>
+			<beans:bean class="kr.or.ddit.interceptor.LoginUserLogInterceptor"
+					    p:savePath-ref="loginUserLogSavePath"
+					    p:saveFileName-ref="loginUserLogSaveFileName"
+			 />
+		</interceptor>
+		
+		<interceptor>
+			<mapping path="/**/regist.do"/>
+			<mapping path="/**/modify.do" />						
+			<beans:bean class="kr.or.ddit.interceptor.XSSRequestInterceptor"/>
+		</interceptor>
+		
+	</interceptors>
+	
+	
 	<context:component-scan base-package="kr.or.ddit.controller" />
 	
 	<beans:bean id="downloadFile" class="kr.or.ddit.view.FileDownloadView" />

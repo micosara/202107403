@@ -50,7 +50,8 @@ public class NoticeController {
 						 RedirectAttributes rttr) throws Exception{
 		String url = "redirect:/notice/list";		
 			
-		notice.setTitle(HTMLInputFilter.htmlSpecialChars(notice.getTitle()));
+		//notice.setTitle(HTMLInputFilter.htmlSpecialChars(notice.getTitle()));
+		notice.setTitle((String)request.getAttribute("XSSTitle"));
 		
 		noticeService.regist(notice);		
 		
@@ -100,12 +101,13 @@ public class NoticeController {
 							 RedirectAttributes rttr)throws Exception{
 		String url = "redirect:/notice/detail.do";
 		
-		notice.setTitle(HTMLInputFilter.htmlSpecialChars(notice.getTitle()));	
+		//notice.setTitle(HTMLInputFilter.htmlSpecialChars(notice.getTitle()));
+		notice.setTitle((String)request.getAttribute("XSSTitle"));
 		
 		noticeService.modify(notice);
 		
 		rttr.addAttribute("nno",notice.getNno());
-		rttr.addAttribute("from","modify");
+		rttr.addFlashAttribute("from","modify");
 		
 		return url;
 	}
