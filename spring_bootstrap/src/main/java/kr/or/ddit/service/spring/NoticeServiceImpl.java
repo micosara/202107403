@@ -46,8 +46,6 @@ public class NoticeServiceImpl implements NoticeService{
 	public NoticeVO getNotice(int nno) throws SQLException {
 		noticeDAOBean.increaseViewCount(nno);
 		
-		if(true) throw new SQLException();
-		
 		NoticeVO board = noticeDAOBean.selectNoticeByNno(nno);
 		return board;
 	}
