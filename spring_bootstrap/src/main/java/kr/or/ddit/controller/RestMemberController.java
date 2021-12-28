@@ -84,12 +84,12 @@ public class RestMemberController {
 
 			entity = new ResponseEntity<byte[]>(IOUtils.toByteArray(in), HttpStatus.CREATED);
 		} finally {
-			in.close();
+			if(in!=null) in.close();
 		}
 		return entity;
 	}
 
-	@RequestMapping(value = "/getPictureById/{id}", method = RequestMethod.GET, produces = "text/plain;charset=utf-8")
+	@RequestMapping(value = "/getPictureById.do/{id}", method = RequestMethod.GET, produces = "text/plain;charset=utf-8")
 	public ResponseEntity<byte[]> getPictureById(@PathVariable("id") String id, HttpServletRequest request)
 			throws Exception {
 

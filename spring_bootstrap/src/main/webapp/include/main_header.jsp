@@ -178,6 +178,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- Sidebar -->
     <div class="sidebar">
       <!-- Sidebar user panel (optional) -->
+      <c:if test="${!empty loginUser }" >
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
           <img src="<%=request.getContextPath() %>/member/getPicture.do?picture=${loginUser.picture}" class="img-circle elevation-2" alt="User Image">
@@ -193,7 +194,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
            	<a href="mailto:${loginUser.email }">email : ${loginUser.email }</a>
         </div>
       </div>
-     
+      </c:if>
       <!-- Sidebar Menu -->
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column subMenuList" data-widget="treeview" role="menu" data-accordion="false">

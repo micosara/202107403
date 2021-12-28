@@ -5,8 +5,8 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 
-<c:set var="pageMaker" value="${dataMap.pageMaker }" />
-<c:set var="pdsList" value="${dataMap.pdsList }" />
+<%-- <c:set var="pageMaker" value="${dataMap.pageMaker }" />
+<c:set var="pdsList" value="${dataMap.pdsList }" /> --%>
 <c:set var="cri" value="${pageMaker.cri }" />
 
 <head>
@@ -116,5 +116,18 @@
 			</div>
 		</div>
 	</section>
-   
+
+<script>
+	if(${from eq 'regist'}){
+		alert("정상적으로 등록되었습니다.")		
+	}
+</script>
+
+
 </body>
+
+
+
+
+
+

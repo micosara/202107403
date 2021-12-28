@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 @RestControllerAdvice
@@ -18,6 +19,8 @@ public class ExceptionRestControllerAdvisor {
 		String message = "파일이 존재하지 않습니다.";
 		result = HttpStatus.INTERNAL_SERVER_ERROR;
 		
+		e.printStackTrace();
+		
 		return new ResponseEntity<String>(message,result);
 	}
 	
@@ -25,6 +28,8 @@ public class ExceptionRestControllerAdvisor {
 	public ResponseEntity<String> sqlException(Exception e){
 		String message = "DB에 장애로 서비스가 중단됩니다.";
 		result = HttpStatus.INTERNAL_SERVER_ERROR;
+		
+		e.printStackTrace();
 		
 		return new ResponseEntity<String>(message,result);
 	}
@@ -34,6 +39,9 @@ public class ExceptionRestControllerAdvisor {
 	public ResponseEntity<String> Exception(Exception e){
 		String message = "서버 장애로 서비스가 중단됩니다.";
 		result = HttpStatus.INTERNAL_SERVER_ERROR;
+		
+		e.printStackTrace();
+		
 		
 		return new ResponseEntity<String>(message,result);
 	}

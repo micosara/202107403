@@ -29,6 +29,21 @@ function MemberPictureThumb(targetObj, fileName,contextPath){ //(대상, 이미�
 	targetObj.style.backgroundSize="cover";
 }
 	
+//spring_security redirect loginForm
+function AjaxErrorSecurityRedirectHandler(status) {
+	if (status == "302") {
+		alert("세션이 만료되었습니다.\n로그인 하세요.");
+		location.reload();
+
+	}else if(status == "403"){
+		alert("권한이 유효하지 않습니다.");
+		history.go(-1);		
+	}else {
+		alert("시스템장애로 실행이 불가합니다.");
+		history.go(-1);
+	}
+
+}
 
 
 
