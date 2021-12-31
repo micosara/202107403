@@ -4,7 +4,7 @@
 	xmlns:p="http://www.springframework.org/schema/p"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 	
-	<!-- boardImgPath -->
+	<!-- summernote Image Path -->
 	<bean id="imgPath" class="java.lang.String">
 		<constructor-arg value="${summernote.img}" />      
 	</bean>
@@ -67,6 +67,12 @@
 		p:session-ref="sqlSession"	
 	 />
 	
+	<bean id="scheduledMemberDAO" 
+		class="kr.or.ddit.dao.spring.ScheduledMemberDAOBeanImpl"
+	    p:memberDAO-ref="memberDAO"
+	    p:session-ref="sqlSession"
+	    p:sqlSession-ref="sqlSession"
+	/>
 	
 	<!-- Service -->
 	<bean id="menuService" class="kr.or.ddit.service.spring.MenuServiceImpl" 
@@ -91,4 +97,40 @@
 		p:memberDAOBean-ref="memberDAOBean"		
 	/>
 	
+	
+	<bean id="scheduledMemberServiceForModify"
+	      class="kr.or.ddit.service.spring.ScheduledMemberServiceForModifyImpl"
+	      p:memberDAOBean-ref="scheduledMemberDAO"
+	      p:scheduedMemberDAO-ref="scheduledMemberDAO"
+	/>
+	
+	<bean id="scheduledNoticeService"
+		  class="kr.or.ddit.service.spring.ScheduledNoticeServiceImpl"		  
+		  p:noticeDAO-ref="noticeDAOBean"
+		  p:noticeDAOBeanChild-ref="noticeDAOBean"
+	/>
+	<bean id="scheduledBoardService"
+		  class="kr.or.ddit.service.spring.ScheduledBoardServiceImpl"
+		  p:boardDAOBean-ref="boardDAOBean"
+		  p:replyDAOBean-ref="replyDAOBean"
+		  p:boardDAOBeanChild-ref="boardDAOBean"
+	/>
+	
+	<bean id="scheduledPdsService"
+		  class="kr.or.ddit.service.spring.ScheduledPdsServiceImpl"
+		  p:attachDAOBean-ref="attachDAOBean"
+		  p:pdsDAOBean-ref="pdsDAOBean"		  
+		  p:pdsDAOBeanChild-ref="pdsDAOBean"
+	/>
+	
+	
 </beans>
+
+
+
+
+
+
+
+
+

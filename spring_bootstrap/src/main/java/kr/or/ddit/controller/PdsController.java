@@ -29,7 +29,8 @@ import kr.or.ddit.utils.GetAttachesByMultipartFileAdapter;
 @RequestMapping("/pds")
 public class PdsController {
 
-	@Autowired
+	//@Autowired
+	@Resource(name="pdsService")
 	private PdsService service;	
 
 	@Resource(name = "fileUploadPath")

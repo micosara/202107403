@@ -3,9 +3,9 @@ package kr.or.ddit.controller;
 import java.sql.SQLException;
 import java.util.Map;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -22,7 +22,7 @@ import com.jsp.service.BoardService;
 @RequestMapping("/board")
 public class BoardController {
 
-	@Autowired
+	@Resource(name="boardService")
 	private BoardService service;
 	
 	@RequestMapping("/main")

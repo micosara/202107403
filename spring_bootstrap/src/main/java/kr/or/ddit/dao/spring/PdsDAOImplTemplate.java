@@ -63,4 +63,10 @@ public class PdsDAOImplTemplate implements PdsDAOBean {
 		return pdsDAO.getSeqNextValue(session);
 	}
 
+	@Override
+	public PdsVO selectPdsByImage(String imageFile) throws SQLException {
+		PdsVO pds = session.selectOne("Pds-Mapper.selectPdsByImage",imageFile);
+		return pds;
+	}
+
 }

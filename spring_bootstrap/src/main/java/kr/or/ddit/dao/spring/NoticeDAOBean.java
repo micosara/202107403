@@ -12,6 +12,7 @@ public interface NoticeDAOBean {
 	int selectSearchNoticeListCount(  SearchCriteria cri) throws SQLException;
 	
 	NoticeVO selectNoticeByNno(  int nno) throws SQLException;
+	NoticeVO selectNoticeByImage(String imageFile) throws SQLException;
 
 	void increaseViewCount(  int nno) throws SQLException;
 	

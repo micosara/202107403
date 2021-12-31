@@ -64,4 +64,11 @@ public class NoticeDAOImplTemplate implements NoticeDAOBean {
 		noticeDAO.deleteNotice(session, nno);
 	}
 
+	@Override
+	public NoticeVO selectNoticeByImage(String imageFile) throws SQLException {
+		NoticeVO notice 
+			= session.selectOne("Notice-Mapper.selectNoticeByImage",imageFile);
+		return notice;
+	}
+
 }

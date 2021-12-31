@@ -14,6 +14,8 @@ public interface BoardDAOBean {
 	
 	BoardVO selectBoardByBno ( int bno) throws SQLException;
 	
+	BoardVO selectBoardByImage ( String imageFile) throws SQLException;
+	
 	void insertBoard( BoardVO board) throws SQLException;
 	
 	void updateBoard( BoardVO board) throws SQLException;
