@@ -37,11 +37,14 @@ public class PdsController {
 	private String fileUploadPath;
 	
 	@RequestMapping("/main")
-	public void main() throws Exception {}
+	public String main() throws Exception {
+		String url="pds/main.open";
+		return url;
+	}
 
 	@RequestMapping("/list")
 	public ModelAndView list(SearchCriteria cri, ModelAndView mnv) throws Exception {
-		String url = "pds/list";
+		String url = "pds/list.open";
 
 		Map<String, Object> dataMap = service.getList(cri);
 
@@ -53,7 +56,7 @@ public class PdsController {
 	
 	@RequestMapping("/registForm")
 	public ModelAndView registForm(ModelAndView mnv) throws Exception {
-		String url = "pds/regist";
+		String url = "pds/regist.open";
 		mnv.setViewName(url);
 		return mnv;
 	}
@@ -81,7 +84,7 @@ public class PdsController {
 	
 	@RequestMapping("/detail")
 	public ModelAndView detail(int pno, String from, ModelAndView mnv) throws Exception {
-		String url = "pds/detail";
+		String url = "pds/detail.open";
 
 		PdsVO pds = null;
 		if (from != null && from.equals("list")) {
@@ -109,7 +112,7 @@ public class PdsController {
 
 	@RequestMapping("/modifyForm")
 	public ModelAndView modifyForm(ModelAndView mnv, int pno) throws Exception {
-		String url = "pds/modify";
+		String url = "pds/modify.open";
 
 		PdsVO pds = service.getPds(pno);
 

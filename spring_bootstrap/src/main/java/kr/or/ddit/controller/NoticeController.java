@@ -27,19 +27,26 @@ public class NoticeController {
 	private NoticeService noticeService;
 	
 	@RequestMapping("/main")
-	public void main()throws Exception{}
+	public String main()throws Exception{
+		String url="notice/main.open";
+		return url;
+	}
 	
 
 	@RequestMapping("/list")
-	public void list(SearchCriteria cri, Model model)throws Exception{
+	public String list(SearchCriteria cri, Model model)throws Exception{
+		
+		String url="notice/list.open";
 		
 		Map<String,Object> dataMap = noticeService.getNoticeList(cri);		
 		model.addAllAttributes(dataMap);
+		
+		return url;
 	}
 	
 	@RequestMapping("/registForm")
 	public String registForm(){
-		String url = "notice/regist";
+		String url = "notice/regist.open";
 		return url;
 	}
 	
@@ -64,7 +71,7 @@ public class NoticeController {
 							   @RequestParam(defaultValue="") String from,
 							   HttpServletRequest request,
 							   ModelAndView mnv ) throws SQLException{
-		String url="notice/detail";
+		String url="notice/detail.open";
 		
 		NoticeVO notice = null;
 		
@@ -83,7 +90,7 @@ public class NoticeController {
 	
 	@RequestMapping("/modifyForm")
 	public ModelAndView modifyForm(int nno,ModelAndView mnv) throws Exception{
-		String url="notice/modify";
+		String url="notice/modify.open";
 		
 		NoticeVO notice = noticeService.getNoticeForModify(nno);
 		

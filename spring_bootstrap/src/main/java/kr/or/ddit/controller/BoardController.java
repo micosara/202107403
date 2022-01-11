@@ -27,12 +27,12 @@ public class BoardController {
 	
 	@RequestMapping("/main")
 	public String main()throws Exception{
-		return "board/main";
+		return "board/main.open";
 	}
 	
 	@RequestMapping("/list")
 	public ModelAndView list(SearchCriteria cri, ModelAndView mnv)throws SQLException{
-		String url="board/list";		
+		String url="board/list.open";		
 		
 		Map<String,Object> dataMap = service.getBoardList(cri);
 		
@@ -44,7 +44,7 @@ public class BoardController {
 	
 	@RequestMapping("/registForm")
 	public String registForm(){
-		String url="board/regist";		
+		String url="board/regist.open";		
 		return url;
 	}
 	
@@ -70,7 +70,7 @@ public class BoardController {
 	
 	@RequestMapping("/detail")
 	public ModelAndView detail(int bno,String from, ModelAndView mnv )throws SQLException{
-		String url="board/detail";		
+		String url="board/detail.open";		
 		
 		BoardVO board =null;
 		if(from!=null && from.equals("list")) {
@@ -88,7 +88,7 @@ public class BoardController {
 	
 	@RequestMapping("/modifyForm")
 	public ModelAndView modifyForm(int bno,ModelAndView mnv)throws SQLException{
-		String url="board/modify";
+		String url="board/modify.open";
 		
 		BoardVO board = service.getBoardForModify(bno);
 		
